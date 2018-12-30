@@ -1,0 +1,47 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.game {
+  background-image: url("../img/boards/table-pattern.jpg");
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  .cards {
+    max-width: 90vw;
+    align-self: center;
+    justify-self: center;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 50px;
+
+    .card {
+      background: white;
+      border-radius: 6px;
+      padding: 5px;
+      border: 5px solid transparent;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      input {
+        display: none;
+      }
+
+      &.keep {
+        border-color: yellow;
+      }
+    }
+  }
+}
