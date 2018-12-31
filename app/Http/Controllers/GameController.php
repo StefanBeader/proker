@@ -48,25 +48,32 @@ class GameController extends Controller
             }
         }
 
-        $key = 'card_1';
         while (count($cards) < 5) {
             $card = (new DrawCard())->card;
             if (!in_array($card->id, $secondHandIds)) {
                 $cardImage = (new CardImage($card))->getCardImage();
-                $key = array_key_exists($key, $cards) ? ($this->generateKey($key)) : $key;
+                $key = $this->generateKey($cards);
                 $cards[$key] = $cardImage;
                 $secondHandIds[] = $card->id;
             }
 
         }
+
         ksort($cards);
 
-        return view('game/game', compact('cards'));
+        return view('game/game2', compact('cards'));
     }
 
-    private function generateKey($key)
+    private function generateKey($cards)
     {
-        list($string, $number) = explode('_', $key);
-        return $string . '_' . ($number++);
+        $key = 'card_1';
+
+        while (array_key_exists($key, $cards)) {
+            list($string, $number) = explode('_', $key);
+            $number++;
+            $key = $string . '_' . $number;
+        }
+
+        return $key;
     }
 }
