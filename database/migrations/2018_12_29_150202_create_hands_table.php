@@ -15,11 +15,11 @@ class CreateHandsTable extends Migration
     {
         Schema::create('hands', function (Blueprint $table) {
             $table->increments('id');
-            $table->tinyInteger('card1');
-            $table->tinyInteger('card2');
-            $table->tinyInteger('card3');
-            $table->tinyInteger('card4');
-            $table->tinyInteger('card5');
+            $table->tinyInteger('card_1');
+            $table->tinyInteger('card_2');
+            $table->tinyInteger('card_3');
+            $table->tinyInteger('card_4');
+            $table->tinyInteger('card_5');
             $table->integer('user_id')->index();
             $table->boolean('isFirstHand')->default(true);
             $table->timestamps();

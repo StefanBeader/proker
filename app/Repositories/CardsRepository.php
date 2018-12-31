@@ -10,4 +10,9 @@ class CardsRepository {
     {
         return Card::where(['value' => $value, 'suit_id' => $suit])->first();
     }
+
+    public function drawCardWithId($id)
+    {
+        return Card::find($id);
+    }
 }

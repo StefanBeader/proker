@@ -33,4 +33,10 @@ class DrawCard {
             $this->suit = $this->setSuit());
     }
 
+    public function drawCardWithId($id)
+    {
+        $repo = new CardsRepository();
+        return $repo->drawCardWithId($id);
+    }
+
 }
