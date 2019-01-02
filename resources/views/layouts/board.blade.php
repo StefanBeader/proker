@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
+<div class="board">
     @yield('content')
+</div>
 
     <script src="{{ 'js/app.js' }}"></script>
 </body>

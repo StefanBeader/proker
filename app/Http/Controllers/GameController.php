@@ -11,10 +11,10 @@ class GameController extends Controller
 {
     public function bet()
     {
-
+        return view('game/bet');
     }
 
-    public function firstHand()
+    public function firstHand(Request $request)
     {
         $cards = [];
         $cardIds = [];
@@ -27,7 +27,7 @@ class GameController extends Controller
             }
         }
 
-        (new HandsRepository())->storeHand($cardIds);
+        (new HandsRepository())->storeHand($cardIds, $request->amount);
 
         return view('game/game', compact('cards'));
     }
@@ -60,8 +60,9 @@ class GameController extends Controller
         }
 
         ksort($cards);
+        $amount = $firstHand->amount;
 
-        return view('game/game2', compact('cards'));
+        return view('game/game2', compact('cards', 'amount'));
     }
 
     private function generateKey($cards)

@@ -1,7 +1,7 @@
 @extends('layouts.board')
 
 @section('content')
-    {!! Form::open(['url' => '/firstHand', 'method' => 'GET']) !!}
+    {!! Form::open(['url' => '/firstHand']) !!}
     <div class="game">
         <div class="cards">
             @foreach($cards as $card)
@@ -10,7 +10,11 @@
                 </div>
             @endforeach
         </div>
-        <button type="submit" id="submit">Deal</button>
+        <div class="hud">
+            {!! Form::hidden('amount', $amount) !!}
+            <button type="submit">Repeat</button>
+            <a href="{{ URL::to('/bet') }}" class="button">New bet</a>
+        </div>
     </div>
     {!! Form::close() !!}
 @endsection

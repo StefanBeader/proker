@@ -10,38 +10,48 @@
   box-sizing: border-box;
 }
 
-.game {
-  background-image: url("../img/boards/table-pattern.jpg");
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.board {
   width: 100vw;
   height: 100vh;
+  background-image: url("../img/boards/table-pattern.jpg");
   display: grid;
-  .cards {
-    max-width: 90vw;
-    align-self: center;
-    justify-self: center;
+  grid-template-rows: 1fr max-content;
+  .game {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-column-gap: 50px;
+    .cards {
+      width: 70vw;
+      align-self: center;
+      justify-self: center;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-column-gap: 50px;
 
-    .card {
-      background: white;
-      border-radius: 6px;
-      padding: 5px;
-      border: 5px solid transparent;
+      .card {
+        background: white;
+        border-radius: 6px;
+        padding: 5px;
+        border: 5px solid transparent;
 
-      img {
-        display: block;
-        width: 100%;
-        height: auto;
-      }
 
-      input {
-        display: none;
-      }
 
-      &.keep {
-        border-color: yellow;
+        input {
+          display: none;
+        }
+
+        &.keep {
+          border-color: yellow;
+        }
       }
     }
+  }
+  .hud {
+    padding: 30px;
+    background: saddlebrown;
   }
 }

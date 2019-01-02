@@ -14,5 +14,5 @@
 Route::get('/', 'MenuController@index');
 
 Route::get('/bet', 'GameController@bet');
-Route::get('/firstHand', 'GameController@firstHand');
+Route::post('/firstHand', 'GameController@firstHand');
 Route::post('/secondHand', 'GameController@secondHand');

@@ -21,7 +21,7 @@ class CreateHandsTable extends Migration
             $table->tinyInteger('card_4');
             $table->tinyInteger('card_5');
             $table->integer('user_id')->index();
-            $table->boolean('isFirstHand')->default(true);
+            $table->integer('amount');
             $table->timestamps();
         });
     }

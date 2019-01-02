@@ -6,7 +6,7 @@ use App\Models\Hand;
 
 class HandsRepository {
 
-    public function storeHand(array $cards)
+    public function storeHand(array $cards, int $amount)
     {
         $hand = new Hand();
         $hand->user_id = 1; //TODO change to loged in User id
@@ -15,6 +15,7 @@ class HandsRepository {
         $hand->card_3 = $cards[2];
         $hand->card_4 = $cards[3];
         $hand->card_5 = $cards[4];
+        $hand->amount = $amount;
         $hand->save();
     }
 
